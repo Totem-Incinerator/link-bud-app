@@ -10,7 +10,8 @@ class Server{
         this.app = express()
         this.port = process.env.PORT
         this.paths = {
-            auth:'/api/auth'
+            auth:'/api/auth',
+            list: '/api/list'
         }
 
         this.databaseConnection()
@@ -53,6 +54,8 @@ class Server{
 
         // Auth
         this.app.use( this.paths.auth, require('../routes/UserRoute') )
+
+        this.app.use( this.paths.list, require('../routes/ListRoute') )
 
     }
 
