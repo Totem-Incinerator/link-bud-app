@@ -24,6 +24,6 @@ const createLinkList = async(req = request, res = response) => {
     }
 }
 
-module.exports= {
+module.exports = {
     createLinkList
 }
