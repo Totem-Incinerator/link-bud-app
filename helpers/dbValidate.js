@@ -1,4 +1,5 @@
 const User = require('../model/UserModel')
+const List = require('../model/ListModel')
 
 const validateUserExists = async(id = 0) => {
 
@@ -9,6 +10,17 @@ const validateUserExists = async(id = 0) => {
     }
 }
 
+const validateListExists = async(id = 0) => {
+
+    const list = await List.findByPk(id)
+
+    if(!list || !list.status){
+        throw new Error(`no existe una lista con el id ${id}`)
+    }
+
+}
+
 module.exports = {
+    validateListExists,
     validateUserExists
 }

@@ -97,8 +97,31 @@ const updateList = async(req, res = response) => {
     }
 }
 
+
+const deleteList = async(req, res = response) => {
+
+    const {id} = req.params
+
+    try{
+
+        const list = await List.update({status: 0}, {where: {id:id}})
+
+        res.status(200).json({
+            msg: 'lista eliminada correctamente',
+        })
+
+    }catch(error){
+        console.error(error)
+        res.status(500).json({
+            msg: 'error en el servidor, contacte con el administrador'
+        })
+    }
+
+}
+
 module.exports = {
     createLinkList,
+    deleteList,
     getListsByUser,
     updateList
 }

@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
 
-const jwtGenerator = (id = '') => {
+const jwtGenerator = (email = '') => {
 
     return new Promise( (resolve, reject) => {
 
-        // id a encriptar
-        const payload = {id};
+        // email a encriptar
+        const payload = {email};
 
         // crear Json Web Token
         jwt.sign(payload, process.env.SECRET_KEY, {

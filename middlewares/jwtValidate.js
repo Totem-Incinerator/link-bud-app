@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const {request, response} = require('express');
-const User = require('../models/UserModel');
+const User = require('../model/UserModel');
 
 const jwtValidate = async(req = request, res = response, next) => {
 
@@ -10,27 +10,25 @@ const jwtValidate = async(req = request, res = response, next) => {
     // validamos si se envio el token
     if(!token){
         return res.status(401).json({
-            msg: 'token not sent'
+            msg: 'no se ha enviado el token'
         });
     }
 
     try{
 
         // obtenemos el uid del token con el cual se realiza la peticion
-        const {id} = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-
+        const {id} = jwt.verify(token, process.env.SECRET_KEY);
+        
         // guardamos el uid en la request
-        req.id = id
+        req.email = id
 
         // obtenemos la informacion del usuario autenticado
-        const userAuth = await User.findOne({
-            where:{id: id}
-        })
-
+        const userAuth = await User.findOne({where:{email: id}})
+        
         // validamos que exista el usuario
         if(!userAuth){
             return res.status(401).json({
-                msg: 'invalid token - user not found'
+                msg: 'token invalido - usuario no encontrado'
             })
         }
 
@@ -42,7 +40,7 @@ const jwtValidate = async(req = request, res = response, next) => {
     } catch(error){
         console.log(error)
         res.status(401).json({
-            msg: 'invalid token'
+            msg: 'error interno, contacte al administrador'
         })
     }
     
