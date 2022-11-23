@@ -43,7 +43,7 @@ Remplaza los campos con tus configuraciones
 #### Registrarse
 
 ```http
-  POST /api/auth/signup
+POST /api/auth/signup
 ```
 
 | Parameter | Type     | Description                |
@@ -54,7 +54,7 @@ Remplaza los campos con tus configuraciones
 #### Autenticarse
 
 ```http
-  POST /api/auth/login
+POST /api/auth/login
 ```
 
 | Parameter | Type     | Description                       |
@@ -71,7 +71,7 @@ De lo contario no será posible crear ninguna lista.
 
 #### Crear una lista
 ```http
-  POST /api/list
+POST /api/list
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -85,7 +85,7 @@ De lo contario no será posible crear ninguna lista.
 
 #### Actualizar una lista
 ```http
-  PUT /api/list/{id}
+PUT /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -99,7 +99,7 @@ De lo contario no será posible crear ninguna lista.
 
 #### Obtener las listas de un usuario
 ```http
-  GET /api/list/{id}
+GET /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -107,7 +107,7 @@ De lo contario no será posible crear ninguna lista.
 
 #### Eliminar una lista
 ```http
-  DELETE /api/list/{id}
+DELETE /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
