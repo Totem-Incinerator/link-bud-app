@@ -17,13 +17,13 @@ const jwtValidate = async(req = request, res = response, next) => {
     try{
 
         // obtenemos el uid del token con el cual se realiza la peticion
-        const {id} = jwt.verify(token, process.env.SECRET_KEY);
+        const {email} = jwt.verify(token, process.env.SECRET_KEY);
         
         // guardamos el uid en la request
-        req.email = id
-
+        req.email = email
+        
         // obtenemos la informacion del usuario autenticado
-        const userAuth = await User.findOne({where:{email: id}})
+        const userAuth = await User.findOne({where:{email: email}})
         
         // validamos que exista el usuario
         if(!userAuth){
