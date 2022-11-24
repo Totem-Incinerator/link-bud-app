@@ -2,6 +2,8 @@
 # Link Bud App
 
 Link bud app es un servicio permite crear listas de enlaces para guardar y compartir.
+[Idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html). Esta aplicación web 
+está hecha con fines unicamente educativos. 
 
 
 ## Guia Instalación
@@ -19,7 +21,7 @@ Instalar las dependencias
 npm install
 ```
 
-Encontrarás un archivo **.example.env***, elimina la cadena **".example"**, el resultado debería ser "**.env**".
+En la raiz del proyecto encontras un archivo **.example.env***, elimina la cadena **".example"**, el resultado debería ser "**.env**".
 
 El archivo contendra lo siguiente:
 ```enviroment
@@ -35,15 +37,15 @@ DB_HOST=localhost
 #LLAVE
 SECRET_KEY=YOUR_SECRET_KEY
 ```
-Remplaza los campos con tus configuraciones
+Remplaza los campos con tus configuraciones.
 
 
-## API Reference
+## Endpoints
 
 #### Registrarse
 
 ```http
-POST /api/auth/signup
+  POST /api/auth/signup
 ```
 
 | Parameter | Type     | Description                |
@@ -54,7 +56,7 @@ POST /api/auth/signup
 #### Autenticarse
 
 ```http
-POST /api/auth/login
+  POST /api/auth/login
 ```
 
 | Parameter | Type     | Description                       |
@@ -71,7 +73,7 @@ De lo contario no será posible crear ninguna lista.
 
 #### Crear una lista
 ```http
-POST /api/list
+  POST /api/list
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -85,7 +87,7 @@ POST /api/list
 
 #### Actualizar una lista
 ```http
-PUT /api/list/{id}
+  PUT /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -95,11 +97,10 @@ PUT /api/list/{id}
 | `description` | `string` | **Optional**. Breve descripción de la lista |
 | `slug` | `string` | **Optional**. Enlace personalizado para la lista |
 | `urls` | `array` | **Optional**. Arreglo con los enlaces a guardar en la lista |
-| `user_id` | `integer` | **Optional**. Id del usuario que crea la lista |
 
 #### Obtener las listas de un usuario
 ```http
-GET /api/list/{id}
+  GET /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -107,7 +108,7 @@ GET /api/list/{id}
 
 #### Eliminar una lista
 ```http
-DELETE /api/list/{id}
+  DELETE /api/list/{id}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
