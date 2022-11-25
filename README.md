@@ -106,9 +106,7 @@ POST /api/list
 | `x-token` | `header` | **Required**. Token del usuario |
 | `title` | `string` | **Required**. Titulo de la lista |
 | `description` | `string` | **Required**. Breve descripción de la lista |
-| `slug` | `string` | **Required**. Enlace personalizado para la lista |
 | `urls` | `array` | **Required**. Arreglo con los enlaces a guardar en la lista |
-| `user_id` | `integer` | **Required**. Id del usuario que crea la lista |
 
 ##### Respuesta:
 ```
@@ -143,7 +141,6 @@ PUT /api/list/{id}
 | `id` | `integer` | **Required**. Id de la lista |
 | `title` | `string` | **Optional**. Titulo de la lista |
 | `description` | `string` | **Optional**. Breve descripción de la lista |
-| `slug` | `string` | **Optional**. Enlace personalizado para la lista |
 | `urls` | `array` | **Optional**. Arreglo con los enlaces a guardar en la lista |
 
 ##### Respuesta:
