@@ -1,12 +1,27 @@
 const {request, response} = require('express')
+const {generateLink, stringToSlug} = require('../helpers/slugGenerator')
 const List = require('../model/ListModel')
 const User = require('../model/UserModel')
 
 const createLinkList = async(req = request, res = response) => {
     
     const data = req.body
+
+    const userAuth = req.email
     
     try{
+
+        // obtener la informacion del usuario autenticado
+        const {id} = await User.findOne({where: {email: userAuth}})
+        
+        // se añade al arreglo de datos
+        data.user_id = id
+
+        // generar slug
+        data.slug = stringToSlug(data.title)
+
+        // generar slug de la lista
+        data.url_list = generateLink(data.title, id)
 
         const lista = await List.create(data)
 
@@ -46,6 +61,7 @@ const getListsByUser = async(req, res = response) => {
                 title: l.title,
                 description: l.description,
                 slug: l.slug,
+                url_list: l.url_list,
                 user: email,
                 createdAt: l.createdAt
             }
@@ -71,6 +87,14 @@ const updateList = async(req, res = response) => {
 
     const data = req.body
     const {id} = req.params
+
+    if(data.title){
+        // generar slug
+        data.slug = stringToSlug(data.title)
+
+        // generar slug de la lista
+        data.url_list = generateLink(data.title, id)
+    }
 
     try{
 

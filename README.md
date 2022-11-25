@@ -118,12 +118,13 @@ POST /api/list
    "id": 14,
    "title": "mejores frameworks",
    "description": "los mejores frameworks del mundo",
-   "slug": "frameworks",
    "urls":[
     "laravel.com",
     "springboot.com",
     "nextjs.com"
    ],
+  "slug": "mejores-frameworks",
+  "url_list": "https://hostname.com/2/mejores-frameworks",
   "user_id": 2,
   "updatedAt": "2022-11-24T23:22:41.874Z",
   "createdAt": "2022-11-24T23:22:41.874Z"
@@ -153,12 +154,13 @@ PUT /api/list/{id}
    "id": 14,
    "title": "mejores frameworks del 2022",
    "description": "los mejores frameworks del mundo",
-   "slug": "frameworks",
    "urls":[
     "laravel.com",
     "springboot.com",
     "nextjs.com"
    ],
+  "slug": "mejores-frameworks-del-2022",
+  "url_list": "https://hostname.com/2/mejores-frameworks-del-2022",
   "user_id": 2,
   "updatedAt": "2022-11-24T23:22:41.874Z",
   "createdAt": "2022-11-24T23:22:41.874Z"
@@ -184,7 +186,8 @@ GET /api/list/{id}
    "id": 14,
    "title": "mejores frameworks del 2022",
    "description": "los mejores frameworks del mundo",
-   "slug": "frameworks",
+   "slug": "mejores-frameworks-del-2022",
+   "url_list": "https://hostname.com/2/mejores-frameworks-del-2022",
    "user": "user@gmail.com",
    "createdAt": "2022-11-24T23:22:41.000Z"
   }

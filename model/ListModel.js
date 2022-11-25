@@ -17,6 +17,9 @@ const List = db.define('List', {
     urls:{
         type: DataTypes.JSON
     },
+    url_list:{
+        type: DataTypes.STRING
+    },
     user_id:{
         type: DataTypes.INTEGER
     }
