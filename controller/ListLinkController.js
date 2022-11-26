@@ -87,16 +87,21 @@ const updateList = async(req, res = response) => {
 
     const data = req.body
     const {id} = req.params
-
-    if(data.title){
-        // generar slug
-        data.slug = stringToSlug(data.title)
-
-        // generar slug de la lista
-        data.url_list = generateLink(data.title, id)
-    }
-
+    const userAuth = req.email
+    
     try{
+
+        if(data.title){
+
+            const {id} = await User.findOne({where: {email: userAuth}})
+            
+            // generar slug
+            data.slug = stringToSlug(data.title)
+
+            // generar slug de la lista
+            data.url_list = generateLink(data.title, id)
+        }
+
 
         const list = await List.findByPk(id)
 
