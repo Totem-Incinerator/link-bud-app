@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const host = process.env.DB_NAME
+const host = process.env.HOSTNAME
 
 
 const deleteEspecialCharacters = (str = '') => {
