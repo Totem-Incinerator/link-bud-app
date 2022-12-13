@@ -63,7 +63,8 @@ const getListsByUser = async(req, res = response) => {
                 slug: l.slug,
                 url_list: l.url_list,
                 user: email,
-                createdAt: l.createdAt
+                createdAt: l.createdAt,
+                updatedAt: l.updatedAt
             }
         } )
 
