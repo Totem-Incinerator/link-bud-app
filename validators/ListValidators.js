@@ -12,8 +12,8 @@ const getListValidate = [
 
 const createListValidate = [
     jwtValidate,
-    check('title', 'ingrese el titulo de la lista').isString().notEmpty().isLength({max: 30}),
-    check("description", "ingrese la descripcion de la lista").isString().notEmpty().isLength({max: 240}),
+    check('title', 'ingrese el titulo de la lista').trim().isString().notEmpty().isLength({max: 30}),
+    check("description", "ingrese la descripcion de la lista").trim().isString().notEmpty().isLength({max: 240}),
     check("urls", "urls requeridas").isArray(),
     validateErrors
 ]
@@ -21,8 +21,8 @@ const createListValidate = [
 const updateListValidate = [
     check('id').isInt(),
     check('id').custom(validateListExists),
-    check('title', 'ingrese el titulo de la lista').isString().notEmpty().isLength({max: 30}).optional(),
-    check("description", "ingrese la descripcion de la lista").isString().notEmpty().isLength({max: 240}).optional(),
+    check('title', 'ingrese el titulo de la lista').trim().isString().notEmpty().isLength({max: 30}).optional(),
+    check("description", "ingrese la descripcion de la lista").trim().isString().notEmpty().isLength({max: 240}).optional(),
     check("urls", "urls requeridas").isArray().optional(),
     jwtValidate,
     validateErrors

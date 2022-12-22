@@ -22,7 +22,7 @@ const createUser = async(req = request, res = response) => {
                 msg: 'ya existe un usuario con ese email'
             })
         }}
-
+        
         const user = await User.create(data)
 
         await user.save()
