@@ -1,7 +1,7 @@
 
 # Link Bud App (BackEnd)
 
-Link bud app es un servicio que permite crear listas de enlaces para guardar y compartir. 
+Link bud app es un servicio que permite crear listas de enlaces para compartir. 
 
 Hechale un vistazo a la **[idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html)**. 
 
@@ -102,7 +102,9 @@ con una duración de 4 horas.
 **Nota:** Es obligatorio enviar el header ```x-token``` con el token del usuario autenticado.
 De lo contario no será posible crear ninguna lista.
 
-<a name="crear-lista">
+
+<a name="crear-lista"></a>
+
 #### Crear una lista
 ```http
 POST /api/list
@@ -136,7 +138,8 @@ POST /api/list
 }
 ```
 
-<a name="editar-lista">
+<a name="editar-lista"></a>
+
 #### Actualizar una lista
 ```http
 PUT /api/list/{id}
@@ -197,7 +200,7 @@ GET /api/list/{id}
  ]
 }
 ```
-<a name="eliminar-lista">
+<a name="eliminar-lista"></a>
 
 #### Eliminar una lista
 ```http
