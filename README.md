@@ -3,9 +3,9 @@
 
 Link bud app es un servicio que permite crear listas de enlaces para guardar y compartir. 
 
-Puedes hecharle un vistazo a la **[idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html)**. 
+Hechale un vistazo a la **[idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html)**. 
 
-Puedes [agregar](#crear-lista), [editar](#editar-lista) y [eliminar listas](#eliminar-lista). 
+Con esta API puedes [agregar](#crear-lista), [editar](#editar-lista) y [eliminar listas](#eliminar-lista). 
 Para cada lista que crees obtendras un enlace que redirigira a tu lista.
 
 #### Nota: 
