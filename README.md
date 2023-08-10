@@ -1,10 +1,16 @@
 
 # Link Bud App (BackEnd)
 
-Link bud app es un servicio que permite crear listas de enlaces para guardar y compartir.
-Aquí la [idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html), puedes agregar editar y eliminar enlaces. 
-Para cada lista obtendras un enlace.
+Link bud app es un servicio que permite crear listas de enlaces para guardar y compartir. 
 
+Puedes hecharle un vistazo a la **[idea original](https://projectbook.code.brettchalupa.com/web-apps/linkbud.html)**. 
+
+Puedes [agregar](#crear-lista), [editar](#editar-lista) y [eliminar listas](#eliminar-lista). 
+Para cada lista que crees obtendras un enlace que redirigira a tu lista.
+
+#### Nota: 
+Esta API está hecha únicamente con fines educativos, que busca poner en practica mi conocimiento de Node Js. En este servicio utilicé autenticación mediante **JWT** y conexión a base de datos utilizando **Sequelize**. \
+La idea es conectarla con un cliente creado en **Angular** el cuál aún esta en proceso de desarrollo.
 
 ## Guia Instalación
 
@@ -96,7 +102,7 @@ con una duración de 4 horas.
 **Nota:** Es obligatorio enviar el header ```x-token``` con el token del usuario autenticado.
 De lo contario no será posible crear ninguna lista.
 
-
+<a name="crear-lista">
 #### Crear una lista
 ```http
 POST /api/list
@@ -130,7 +136,7 @@ POST /api/list
 }
 ```
 
-
+<a name="editar-lista">
 #### Actualizar una lista
 ```http
 PUT /api/list/{id}
@@ -191,6 +197,7 @@ GET /api/list/{id}
  ]
 }
 ```
+<a name="eliminar-lista">
 
 #### Eliminar una lista
 ```http
