@@ -7,12 +7,14 @@ const createUser = async(req = request, res = response) => {
 
     const data = req.body
 
+    // TODO: Extraer la encriptación de la contraseña en una función aparte
     const salt = bcrypt.genSaltSync()
 
     data.password = bcrypt.hashSync(data.password, salt)
 
     try{
 
+        // TODO: Pasar a un middleware esta validación
         const validateUser = await User.findOne({
             where: {email: data.email}
         }) 
@@ -47,6 +49,7 @@ const login = async(req = request, res = response) => {
 
     try{
 
+        // TODO: Pasar a un middleware esta validación
         const validateUser = await User.findOne({
             where: {email: email}
         })
