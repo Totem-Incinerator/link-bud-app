@@ -1,34 +1,21 @@
 const {request, response} = require('express')
-const bcrypt = require('bcrypt')
+
 const User = require('../model/UserModel')
 const {jwtGenerator} = require('../helpers/jwtGenerator')
+const {passwordEncrypter, passwordValidator} = require("../helpers/passwordEncrypter")
 
 const createUser = async(req = request, res = response) => {
 
     const data = req.body
 
-    // TODO: Extraer la encriptación de la contraseña en una función aparte
-    const salt = bcrypt.genSaltSync()
-
-    data.password = bcrypt.hashSync(data.password, salt)
+    data.password = passwordEncrypter(data.password)
 
     try{
-
-        // TODO: Pasar a un middleware esta validación
-        const validateUser = await User.findOne({
-            where: {email: data.email}
-        }) 
-
-        if(validateUser){{
-            return res.status(400).json({
-                msg: 'ya existe un usuario con ese email'
-            })
-        }}
-        
+                
         const user = await User.create(data)
-
+        
         await user.save()
-
+        
         res.status(201).json({
             msg: 'usuario creado correctamente',
             user
@@ -49,19 +36,12 @@ const login = async(req = request, res = response) => {
 
     try{
 
-        // TODO: Pasar a un middleware esta validación
         const validateUser = await User.findOne({
             where: {email: email}
         })
 
-        if(!validateUser){
-            return res.status(404).json({
-                msg: 'error, usuario no encontrado - usuario'
-            })
-        }
-
-        if(!bcrypt.compareSync(password, validateUser.password)){
-            return res.status(404).json({
+        if(!passwordValidator(password, validateUser.password)){
+            return res.status(401).json({
                 msg: 'error, usuario no encontrado - password'
             })
         }
@@ -80,8 +60,6 @@ const login = async(req = request, res = response) => {
             msg: 'error en el servidor'
         })
     }
-
-
 }
 
 module.exports = {

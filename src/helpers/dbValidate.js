@@ -20,7 +20,24 @@ const validateListExists = async(id = 0) => {
 
 }
 
+
+const validateEmailExists = async (email = '') => {
+    const emailValidate = await User.findOne({where: {email: email}})
+    if(emailValidate){
+        throw new Error("email ya registrado")
+    }
+}
+
+const validateEmailNotExists = async (email = '') => {
+    const emailValidate = await User.findOne({where: {email: email}})
+    if(!emailValidate){
+        throw new Error("email no registrado")
+    }
+}
+
 module.exports = {
+    validateEmailExists,
+    validateEmailNotExists,
     validateListExists,
     validateUserExists
 }
