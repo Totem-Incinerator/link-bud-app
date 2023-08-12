@@ -45,6 +45,9 @@ SECRET_KEY=YOUR_SECRET_KEY
 ```
 Remplaza los valores correspondientes con tus datos.
 
+## Base de datos
+Aunque en un principio tenia pensado agregar migraciones, todavía no me ha sido posible hacerlo, aún
+así puedes crear las tablas de la base de datos corriendo el archivo **linkbud_app.sql** en la heramienta de administración de base de datos que prefieras.
 
 ## Endpoints
 
