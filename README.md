@@ -101,7 +101,7 @@ POST /api/auth/login
 Al autenticarse se retornara el **token** correspondiente para el usuario
 con una duración de 4 horas. 
 
-**Nota:** Es obligatorio enviar el header ```x-token``` con el token del usuario autenticado.
+**Nota:** Envía el header ```x-token``` con el token del usuario.
 De lo contario no será posible crear ninguna lista.
 
 
